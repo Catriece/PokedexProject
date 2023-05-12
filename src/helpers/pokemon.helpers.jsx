@@ -1,7 +1,7 @@
-export function filterPokemonByType(data, type) {
-    if (type) return data.filter((pokemon) => pokemon.type == type)
+export function filterPokemonByType(list, type) {
+    if (type) return list.filter((pokemon) => pokemon.type == type)
 
-    else return data
+    else return list;
 }
 
 /*export function filterFilmsByWeaknesses(list, weaknesses) {
