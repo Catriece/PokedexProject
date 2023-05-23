@@ -1,3 +1,4 @@
+//original code
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { filterPokemonByType } from '../helpers/pokemon.helpers'
@@ -86,3 +87,26 @@ function Pokemon() {
 }
 
 export default Pokemon;
+
+//potential images
+/*
+<img src="/images/bugtype.png" alt="" className="types" />
+                    <img src="/images/darktype.png" alt="" className="types" />
+                    <img src="/images/dragontype.png" alt="" className="types" />
+                    <img src="/images/electrictype.png" alt="" className="types" />
+                    <img src="/images/fairytype.png" alt="" className="types" />
+                    <img src="/images/fightingtype.png" alt="" className="types" />
+                    <img src="/images/firetype.png" alt="" className="types" />
+                    <img src="/images/flyingtype.png" alt="" className="types" />
+                    <img src="/images/ghosttype.png" alt="" className="types" />
+                    <img src="/images/grasstype.png" alt="" className="types" />
+                    <img src="/images/groundtype.png" alt="" className="types" />
+                    <img src="/images/icetype.png" alt="" className="types" />
+                    <img src="/images/normaltype.png" alt="" className="types" />
+                    <img src="/images/poisontype.png" alt="" className="types" />
+                    <img src="/images/psychictype.png" alt="" className="types" />
+                    <img src="/images/rocktype.png" alt="" className="types" />
+                    <img src="/images/steeltype.png" alt="" className="types" />
+                    <img src="/images/watertype.png" alt="" className="types" />
+
+                    */

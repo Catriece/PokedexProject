@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function PokemonPage(props) {
     let [list, setList] = useState([])
