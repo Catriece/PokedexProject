@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState} from 'react';
+import { useState } from 'react';
 import logo from '../pngegg.png';
 
 
@@ -137,6 +137,9 @@ function HomePage( { pokemon } ) {
       console.log("weak")
     };
 
+    // Change Type and Weakness Image Clicks so multiple clicks and filters can be made.
+    // Change how pokemon are shown so when Types/Weakness are clicked, the DOM is updated in real time.
+        // Potentially onClick of badges and images rather than buttons?
     const handleTypeImageClick = (e) => {
       let clickType = e.target.alt
       setShowWeak(false);
@@ -264,3 +267,8 @@ function HomePage( { pokemon } ) {
 }
 
 export default HomePage;
+
+// Current issues with Code:
+    // Unable to filter multiple types and/or weaknesses
+    // Pokemon only show when a click is made
+    // Unable to use an object as a react child, 

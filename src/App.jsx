@@ -1,4 +1,5 @@
 import './App.css';
+import './AppSP.css';
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import HomePage from "./pages/home.page"
@@ -21,6 +22,8 @@ function App() {
 useEffect(() => {
     fetchPokeName();
 }, []);
+
+
 
   return (
     <BrowserRouter>

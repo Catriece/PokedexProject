@@ -1,0 +1,61 @@
+/* Single Pokemon Page Edits */
+
+#main-single-pokemon-div {
+    background-color: #282c34;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+#home-div {
+    display: flex;
+    justify-content: center;
+}
+.info-divs {
+    display: inline;
+    width: 250px;
+    height: 375px;
+    border: 5px;
+}
+  
+  .evo-button {
+    width: 50px;
+    height: 25px;
+    border-radius: 12px;
+    /* Help below */
+    align-items: center; 
+  }
+  
+  #pokemon-img-div {
+    width: 95%;
+    height: 60%;
+    border: white;
+    justify-content: center;
+  }
+
+  #pokemon {
+    height: 100%;
+    width: 100%;
+  }
+
+  #pokemon-name {
+    text-align: center;
+  }
+  
+  .poke-badge {
+    height: 80px;
+    width: 80px;
+  }
+  .poke-info-div {
+    width: 25vw;
+    height: 25vh;
+  }
+  
+  .poke-types-weaks {
+    text-align: center;
+    
+  }
