@@ -1,17 +1,17 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useState} from 'react';
 import logo from '../pngegg.png';
 
 
-function HomePage({ pokemon }) {
-    //let [pokemon, setPokemon] = useState([])
+function HomePage( { pokemon } ) {
     let [filterPokemon, setFilterPokemon] = useState([])
     let [showName, setShowName] = useState(false)
     let [showType, setShowType] = useState(true);
     let [showWeak, setShowWeak] = useState(false)
     let [showPokemon, setShowPokemon] = useState(false)
+    let [showPokemonNames, setShowPokemonNames] = useState(false)
 
-    const images = [
+    const badges = [
       {
           imageUrl: "/images/bugtype.png",
           idt: "Bug",
@@ -90,73 +90,93 @@ function HomePage({ pokemon }) {
       }
   ]
 
-    // function fetchPokeName() {
-    //     fetch("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json")
-    //     .then((res) => res.json())
-    //     .then((pokemon) => setPokemon(pokemon.pokemon))
-    //     .catch((err) => console.error(err))
-    // };
-
-    // useEffect(() => {
-    //     fetchPokeName();
-    // }, []);
-
-    let navigate = useNavigate()
-
-    
-    const handleNameClick = (e) => {
-      // let temp = new Array(...e.target.classList)
-      // if (!temp.includes("bg-red")) {
-      //   e.target.classList.toggle("bg-red")
-      //   document.getElementById("weaknessBtn").classList.toggle("bg-red")
-      // }
-      setShowType(false)
-      setShowName(true)
-      setShowWeak(false)
-      setShowPokemon(false)
-      console.log("name")
-    }
-    
-    const handleTypeClick = (e) => {
-      // let temp = new Array(...e.target.classList)
-      // if (!temp.includes("bg-red")) {
-      //   e.target.classList.toggle("bg-red")
-      //   document.getElementById("weaknessBtn").classList.toggle("bg-red")
-      // }
+    const handleTypeButton = (e) => {
+      let temp = new Array(...e.target.classList)
+      if (!temp.includes("bg-red")) {
+        e.target.classList.toggle("bg-red")
+        document.getElementById("weaknessBtn").classList.remove("bg-red")
+        document.getElementById("nameButton").classList.remove("bg-red")
+      }
       
       setShowType(true);
       setShowWeak(false)
       setShowName(false)
       setShowPokemon(false)
+      setShowPokemonNames(false)
       console.log("type")
     };
+
+    const handleNameButton = (e) => {
+      let temp = new Array(...e.target.classList)
+      if (!temp.includes("bg-red")) {
+        e.target.classList.toggle("bg-red")
+        document.getElementById("weaknessBtn").classList.remove("bg-red")
+        document.getElementById("typeButton").classList.remove("bg-red")
+      }
+      setShowType(false)
+      setShowName(true)
+      setShowWeak(false)
+      setShowPokemon(false)
+      setShowPokemonNames(false)
+      console.log("name")
+    }
     
-    const handleWeakClick = (e) => {
-      // let temp = new Array(...e.target.classList)
-      // if (!temp.includes("bg-red")) {
-      //   e.target.classList.toggle("bg-red")
-      //   document.getElementById("typeButton").classList.toggle("bg-red")
-      // }
+    const handleWeaknessButton = (e) => {
+      let temp = new Array(...e.target.classList)
+      if (!temp.includes("bg-red")) {
+        e.target.classList.toggle("bg-red")
+        document.getElementById("typeButton").classList.remove("bg-red")
+        document.getElementById("nameButton").classList.remove("bg-red")
+      }
+
       setShowWeak(true);
       setShowType(false);
       setShowName(false)
       setShowPokemon(false);
+      setShowPokemonNames(false)
       console.log("weak")
     };
 
-    
-    const handleImageClick = (e) => {
+    const handleTypeImageClick = (e) => {
       let clickType = e.target.alt
       setShowWeak(false);
       setShowType(false);
       setShowPokemon(true)
+      setShowPokemonNames(false)
       
       setFilterPokemon(pokemon.filter((poke) => {
           return poke.type.includes(clickType)
       }))
       }
-      
 
+      const pokemonNames = new Array(...pokemon)
+      const handleNameInput = (e) => {
+        e.preventDefault();
+        let nameInput = filterPokemon
+  
+        setShowPokemonNames(pokemonNames.filter((poke) => {
+          return poke.name.includes(nameInput)
+        }))
+  
+        setShowWeak(false);
+        setShowType(false);
+        setShowPokemon(false)
+        setShowPokemonNames(true)
+        }
+
+    const handleWeakImageClick = (e) => {
+      let clickWeak = e.target.alt
+      setShowWeak(false);
+      setShowType(false);
+      setShowPokemon(true)
+      setShowPokemonNames(false)
+      
+      setFilterPokemon(pokemon.filter((poke) => {
+          return poke.weaknesses.includes(clickWeak)
+      }))
+      }
+
+      
     return (
         <div className="App">
         <header className="App-header">
@@ -164,38 +184,71 @@ function HomePage({ pokemon }) {
           <div>
             <div id="type-btn">
               <div>
-                <button id="typeButton" className="search-button bg-red" onClick={handleTypeClick}>Type</button>
+                <button id="typeButton" className="search-button bg-red" onClick={handleTypeButton}>Type</button>
 
-                <button id="nameButton" className="search-button" onClick={handleNameClick}></button>
+                <button id="nameButton" className="search-button" onClick={handleNameButton}>Name</button>
 
-                <button id="weaknessBtn" className="search-button" onClick={handleWeakClick}>Weaknesses</button>  
+                <button id="weaknessBtn" className="search-button" onClick={handleWeaknessButton}>Weaknesses</button>  
               </div>
               <br />
               <br />
+              
+                {/* OnClick Div for filtering Pokemon based on Name */}
               <div>
                 {showName &&
-                 <form> 
+                 <form id="name-form"> 
                   <label>
-                    <input type="text" placeholder="Bulbasaur"/>
+                    <input 
+                    type="text" 
+                    id="name-search" 
+                    value={filterPokemon} 
+                    onChange={(e) => setFilterPokemon(e.target.value)} placeholder="Bulbasaur"/>
                   </label>
-                  </form>}
+                  <br />
+                  <button 
+                  type="submit" 
+                  id="go-button" 
+                  onClick={handleNameInput}>GO!
+                  </button>
+                </form> }
+
+                  { showPokemonNames && 
+                  pokemonNames.map((name) => {
+                    if (name.name.toLowerCase() === filterPokemon.toLowerCase()) {
+                      return <div>
+                      <Link to={`pokemon/${name.id}`}>
+                        <img src={name.img} 
+                        alt={name.name} 
+                        id={`${name.name} + "-img"`} />
+                      </Link>
+                      <p id={`${name.name} + "-label"`}>{name.name}</p>
+                      </div>
+                    }
+                  }) }
               </div>
+
+              {/* OnClick Div for Pokemon Types Badge Images */}
               <div>
-                {showType && images.map((image) => {
-                return <div className="types-img" ><img src={image.imageUrl} alt={image.idt} className="types-images" key={image.idt} onClick={handleImageClick}/></div>})}
+                {showType && badges.map((image) => {
+                return <div className="badges-img-div" ><img src={image.imageUrl} alt={image.idt} className="types-images" key={image.idt} onClick={handleTypeImageClick}/></div>})}
               </div>
+
+              {/* OnClick Div for Pokemon Weakness Badge Images */}
               <div>
-                {showWeak && images.map((image) => {
-                return <div className="types-img" ><Link to={`pokemon/${image.idw}`} key={image.idw}><img src={image.imageUrl} alt={image.idw} className="types-images"/></Link></div>})}
+                {showWeak && badges.map((image) => {
+                return <div className="badges-img-div" ><img src={image.imageUrl} alt={image.idw} className="types-images" key={image.idw} onClick={handleWeakImageClick}/></div>})}
               </div>
+
+              {/* OnClick Div for Pokemon that matched Criteria for User Choice With Weakness or Type Filters */}
               <div>
-                <h1>Hello!</h1>
-                {showPokemon && images.map((image) => {
-                  return <div id="nav-images-div"><img src={image.imageUrl} alt={image.idw} id="nav-images" onClick={navigate("/")}/></div>
-                })}
+                
                 {showPokemon && filterPokemon.map((pokemon) => {
                   return <div>
-                      <div id="poke-images-div"><img src={pokemon.img} alt={pokemon.name} id="poke-images"/></div>
+                      <div id="poke-images-div">
+                        <Link to={`pokemon/${pokemon.id}`}>
+                          <img src={pokemon.img} alt={pokemon.name} id="poke-images"/>
+                        </Link>
+                      </div>
                     </div>
                 })}
               </div>
