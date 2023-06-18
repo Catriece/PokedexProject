@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 17vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#main {
+  display: flex;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.right-left-div {
+  display: flex;
+}
+
+#left-div {
+  max-width:  350px;
+}
+
+#right-div {
+  max-width: 350px;
+}
+
+#nav-images {
+  height: 50px;
+  width: 45px;
+  display: inline;
+}
+
+#nav-images-div {
+  display: inline;
+}
+
+#poke-images {
+  display: inline;
+}
+
+#typeButton {
+  border-radius: 12px 0px 0px 12px;
+  border: 0px;
+}
+
+#nameButton {
+  border: 0px;
+}
+
+#name-search {
+  height: 40px;
+  width: 450px;
+  border-radius: 40px;
+  border: 0px;
+  font-size: 25px;
+  text-align: center;
+}
+
+#go-button {
+  height: 30px;
+  width: 85px;
+  border: 1rem;
+  border-radius: 12px;
+}
+
+#weaknessBtn {
+  border-radius: 0px 12px 12px 0px;
+  border: 0px;
+}
+
+.bg-red {
+  background-color: rgb(255, 0, 0)
+}
+
+.search-button {
+  width: 95px;
+  height: 25px;
+  /* min-width: 100px;
+  min-height: 25px; */
+}
+
+.types-images {
+  padding: 5px;
+  width: 50px;
+  height: 65px;
+}
+
+#poke-images {
+  display: inline;
+  height: 75px;
+  width: 75px;
+}
+
+#poke-images-div {
+  display: inline;
+}
+
+.badges-img-div {
+  display: inline;
+  width: 350px;
+  
+}
+
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

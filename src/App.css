@@ -1,114 +1,286 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+#info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65vw;
+  height: 50vh;
+  border: 0.5rem solid white;
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 700px;
+  font-size: calc(10px + 2vmin);
+}
+
+.poke-info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+#left-div {
+  display: column;
+  /* max-width: 40vw; */
+  width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-right: 2px dashed white;
+}
+
+#right-div {
+  /* max-width: 60vw; */
+  width: 50%;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  border-left: 2px dashed white;
+}
+
+.logo {
+  height: 17vmin;
   pointer-events: none;
 }
 
-/*@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}*/
-
-
-#nav-images {
-  height: 50px;
-  width: 45px;
-  display: inline;
+/* Badge Images */
+#badge-images-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: scroll;
+  width: 98%;
 }
 
-#nav-images-div {
-  display: inline;
+.badge-images {
+  padding: 5px;
+  width: 70px;
+  height: 90px;
+  text-align: center;
 }
 
-#poke-images {
-  display: inline;
+#indiv-badge-div {
+  padding: 0;
+  margin: 0;
 }
 
-#typeButton {
+/* Buttons */
+.search-button {
+  /* width: auto; */
+  max-width: 50%;
+  height: 25px;
+  width: 100px;
+}
+
+#type-button {
   border-radius: 12px 0px 0px 12px;
   border: 0px;
 }
 
-#nameButton {
-  border: 0px;
-}
-
-#name-search {
-  height: 40px;
-  width: 450px;
-  border-radius: 40px;
-  border: 0px;
-  font-size: 25px;
-  text-align: center;
-}
-
-#go-button {
-  height: 30px;
-  width: 85px;
-  border: 1rem;
-  border-radius: 12px;
-}
-
-#weaknessBtn {
+#weakness-button {
   border-radius: 0px 12px 12px 0px;
   border: 0px;
 }
 
 .bg-red {
-  background-color: rgb(255, 0, 0)
+  background-color: rgb(255, 0, 0);
 }
 
-.search-button {
-  width: 175px;
-  height: 35px;
-  /* min-width: 100px;
-  min-height: 25px; */
+.bg-white {
+  background-color: rgb(255, 255, 255);
 }
 
-.types-images {
-  padding: 5px;
-  width: 100px;
-  height: 125px;
-}
-
-#poke-images {
-  display: inline;
-}
-
-#poke-images-div {
-  display: inline;
-}
-
-.badges-img-div {
-  display: inline;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Pokemon Images */
+#pokemon-div {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+  flex-wrap: wrap;
+  overflow: scroll;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 12px;
+  background-color: #434a58;
 }
 
-.App-link {
-  color: #61dafb;
+#indiv-pokemon-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  width: 50%;
 }
 
+.pokemon-images {
+  padding: 7px;
+  width: 85px;
+  height: 100px;
+}
 
+.under-img {
+  padding: 3px;
+  font-size: 18px;
+}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width: 750px) {
+  /* info divs */
+
+  #main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: white;
   }
-  to {
-    transform: rotate(360deg);
+
+  #info {
+    font-size: 16px; /* Adjust the font size to your preference */
+    flex-direction: column;
+    width: 73vw;
+    max-height: 58vh;
+    /* overflow: hidden; */
+    padding: 2px;
+    max-width: 100vw;
+  }
+
+  #left-div {
+    display: row;
+    min-height: 70%;
+    width: 100%;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-right: 0px;
+    overflow: auto;
+  }
+
+  #right-div {
+    /* max-width: 60vw; */
+    display: row;
+    width: 100%;
+    min-height: 30%;
+    padding-right: 3px;
+    padding-left: 3px;
+    border-left: 0px;
+    overflow: scroll;
+  }
+
+  /* buttons */
+
+  .search-button {
+    /* width: auto; */
+    width: 75px;
+    height: 20px;
+    font-size: 11px;
+  }
+
+  /* Pokemon Right Div Label */
+  #pokemon-label-div {
+    padding: 2px;
+  }
+
+  #pokemon-div {
+    padding: 2px;
+    height: 100%;
+  }
+
+  /* badges */
+
+  #badge-images-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: scroll;
+    width: 98%;
+    height: 45%;
+  }
+
+  .badge-images {
+    width: 50px; /* Adjust the width to your preference */
+    height: 60px; /* Adjust the height to your preference */
+  }
+
+  /* pokemon divs */
+
+  #indiv-pokemon-div {
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: 25%;
+  }
+
+  .pokemon-images {
+    padding: 7px;
+    width: 65px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #282c34;
+    min-height: 100vh;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  #info {
+    font-size: 16px; /* Adjust the font size to your preference */
+    flex-direction: column;
+    width: 73vw;
+    max-height: 58vh;
+    /* overflow: hidden; */
+    padding: 2px;
+    max-width: 100vw;
+  }
+
+  #left-div {
+    display: row;
+    min-height: 45%;
+    width: 100%;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-right: 0px;
+    overflow: auto;
+  }
+
+  #right-div {
+    /* max-width: 60vw; */
+    display: row;
+    width: 100%;
+    max-height: 40%;
+    margin-top: 10px;
+    padding-right: 3px;
+    padding-left: 3px;
+    border-left: 0px;
+    overflow: scroll;
+  }
+
+  #indiv-pokemon-div {
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    width: 24%;
   }
 }

@@ -1,29 +1,30 @@
-import './App.css';
-import './AppSP.css';
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import HomePage from "./pages/home.page"
-import PokemonTypes from "./pages/pokemontypes.page"
-//import PokemonWeaknesses from './pages/pokemonweaknesses.page';
-//import PokemonPage from "./pages/singlepokemon.page"
-import SinglePoketypePage from './pages/singlepagepoketype.page';
+import "./App.css";
+import "./AppSP.css";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import HomePage from "./pages/home.page2";
 
+//Individual types and weaknesses pages may not be needed.
+//import PokemonTypes from "./pages/pokemontypes.page"
+//import PokemonWeaknesses from './pages/pokemonweaknesses.page';
+
+import SinglePoketypePage from "./pages/singlepagepoketype.page";
 
 function App() {
-  let [pokemon, setPokemon] = useState([])
-  
+  let [pokemon, setPokemon] = useState([]);
+
   function fetchPokeName() {
-    fetch("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json")
-    .then((res) => res.json())
-    .then((pokemon) => setPokemon(pokemon.pokemon))
-    .catch((err) => console.error(err))
-};
+    fetch(
+      "https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json"
+    )
+      .then((res) => res.json())
+      .then((pokemon) => setPokemon(pokemon.pokemon))
+      .catch((err) => console.error(err));
+  }
 
-useEffect(() => {
+  useEffect(() => {
     fetchPokeName();
-}, []);
-
-
+  }, []);
 
   return (
     <BrowserRouter>
@@ -42,8 +43,11 @@ useEffect(() => {
       </nav>
       <Routes>
         <Route path="/" element={<HomePage pokemon={pokemon} />} />
-        <Route path="pokemon-types" element={<PokemonTypes />} />
-        <Route path="pokemon/:id" element={<SinglePoketypePage pokemon={pokemon}/>} />
+        {/* <Route path="pokemon-types" element={<PokemonTypes />} /> */}
+        <Route
+          path="pokemon/:id"
+          element={<SinglePoketypePage pokemon={pokemon} />}
+        />
         {/*<Route path="pokemon-weaknesses" element={<PokemonWeaknesses />} />*/}
       </Routes>
     </BrowserRouter>
